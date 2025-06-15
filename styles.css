@@ -15,10 +15,32 @@
 html, body {
   margin: 0;
   padding: 0;
-  background: var(--main-bg);
+  min-height: 100vh;
   font-family: var(--font-main);
   color: var(--text-main);
-  min-height: 100vh;
+}
+
+body {
+  background: var(--main-bg);
+  /* Background overlay with image */
+  background-image: url('image1');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: relative;
+}
+
+/* Add a semi-transparent white overlay for readability */
+body::before {
+  content: "";
+  position: fixed;
+  z-index: 0;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255,255,255,0.82);
+  pointer-events: none;
 }
 
 .container {
@@ -26,11 +48,15 @@ html, body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
+  z-index: 1;
 }
 
 header {
   text-align: center;
   padding: 2.3rem 1.2rem 1.2rem 1.2rem;
+  z-index: 2;
+  position: relative;
 }
 
 header h1 {
@@ -48,11 +74,23 @@ header p {
 }
 
 main {
-  max-width: 440px;
+  width: 100%;
+  max-width: 900px;
   margin: 0 auto;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 2.2rem;
+  justify-content: center;
+  z-index: 2;
+  position: relative;
+}
+
+.calculators-row {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  justify-content: center;
+  align-items: stretch;
   width: 100%;
 }
 
@@ -62,7 +100,17 @@ main {
   box-shadow: var(--shadow);
   padding: 2rem 1.6rem 1.6rem 1.6rem;
   margin-bottom: 0.5rem;
+  min-width: 310px;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  z-index: 3;
+  position: relative;
 }
+
+#percentile-card { order: 1; }
+#percentage-card { order: 2; }
 
 .card h2 {
   color: var(--accent);
@@ -135,6 +183,8 @@ footer {
   font-size: 0.97rem;
   padding: 2.3rem 0 1.1rem 0;
   letter-spacing: 0.01em;
+  z-index: 2;
+  position: relative;
 }
 
 footer a {
@@ -144,6 +194,18 @@ footer a {
 }
 footer a:hover {
   color: var(--accent-hover);
+}
+
+@media (max-width: 900px) {
+  .calculators-row {
+    flex-direction: column;
+    gap: 2.2rem;
+    align-items: stretch;
+  }
+  .card {
+    min-width: 0;
+    width: 100%;
+  }
 }
 
 @media (max-width: 600px) {
