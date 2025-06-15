@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Percentage & Percentile Calculator</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>📊 Percentage & Percentile Calculator</h1>
+      <p>Easily compute your exam percentage or percentile in seconds.</p>
+    </header>
+
+    <main>
+      <section class="card">
+        <h2>Percentage Calculator</h2>
+        <form id="percentage-form" autocomplete="off">
+          <div class="form-group">
+            <label for="obtained">Obtained Marks</label>
+            <input type="number" id="obtained" min="0" step="any" placeholder="e.g. 78" required>
+          </div>
+          <div class="form-group">
+            <label for="total">Total Marks</label>
+            <input type="number" id="total" min="1" step="any" placeholder="e.g. 100" required>
+          </div>
+          <button type="submit" class="primary-btn">Calculate</button>
+        </form>
+        <div class="result" id="percentage-result"></div>
+      </section>
+
+      <section class="card">
+        <h2>Percentile Calculator</h2>
+        <form id="percentile-form" autocomplete="off">
+          <div class="form-group">
+            <label for="below">Number of students below you</label>
+            <input type="number" id="below" min="0" step="1" placeholder="e.g. 150" required>
+          </div>
+          <div class="form-group">
+            <label for="equal">Number of students equal to you</label>
+            <input type="number" id="equal" min="0" step="1" placeholder="e.g. 3" required>
+          </div>
+          <div class="form-group">
+            <label for="total-students">Total number of students</label>
+            <input type="number" id="total-students" min="1" step="1" placeholder="e.g. 200" required>
+          </div>
+          <button type="submit" class="primary-btn">Calculate</button>
+        </form>
+        <div class="result" id="percentile-result"></div>
+      </section>
+    </main>
+    <footer>
+      <small>&copy; 2025 <a href="https://github.com/Mrprofuture" target="_blank">Mrprofuture</a> | Modern, responsive interface</small>
+    </footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
