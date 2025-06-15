@@ -1,5 +1,5 @@
 :root {
-  --main-bg: #f5f7fa;
+  --main-bg: #7b2530; /* red wine colour */
   --card-bg: #fff;
   --accent: #2563eb;
   --accent-hover: #1749b1;
@@ -30,7 +30,7 @@ body {
   position: relative;
 }
 
-/* Add a semi-transparent white overlay for readability */
+/* Add a semi-transparent overlay for readability */
 body::before {
   content: "";
   position: fixed;
